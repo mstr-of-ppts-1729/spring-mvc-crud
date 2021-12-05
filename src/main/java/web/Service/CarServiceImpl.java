@@ -1,19 +1,18 @@
 package web.Service;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import web.Dao.CarDao;
 import web.Model.Car;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
+@Service
 public class CarServiceImpl  {
-     public static List<Car> carsCount(List<Car> list, int count) {
-        if (count > 0 && count <= 5) {
-            return list.stream().limit(count).collect(Collectors.toList());
-        } else {
-            return list;
+    @Autowired
+    private CarDao carDao;
+    public List<Car> getCars(int count) {
+        return carDao.carsCount(count);
         }
     }
-}
