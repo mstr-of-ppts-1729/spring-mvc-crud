@@ -1,15 +1,30 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title></title>
+    <meta charset="UTF-8" />
+    <title>User List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
+<h1>User List</h1>
+<br/><br/>
 <div>
-    <th:block th:each="msg : ${messages}">
-        <h1 th:text="${msg}"></h1>
-    </th:block>
+        <a th:href="@{/users/new}">Add User</a>
+</div>
+<br/><br/>
+<div>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr th:each ="user : ${users}">
+            <td th:utext="${user.id}"></td>
+            <td> <a th:href="@{/users/{id}(id = ${user.getId()})}" th:utext="${user.name}"></a></td>
+            <td th:utext="${user.age}"></td>
+        </tr>
+    </table>
 </div>
 </body>
 </html>

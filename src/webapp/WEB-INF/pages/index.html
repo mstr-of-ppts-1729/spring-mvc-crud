@@ -9,6 +9,10 @@
 <h1>User List</h1>
 <br/><br/>
 <div>
+        <a th:href="@{/users/new}">Add User</a>
+</div>
+<br/><br/>
+<div>
     <table border="1">
         <tr>
             <th>ID</th>
@@ -17,7 +21,7 @@
         </tr>
         <tr th:each ="user : ${users}">
             <td th:utext="${user.id}"></td>
-            <td th:utext="${user.name}"></td>
+            <td> <a th:href="@{/users/{id}(id = ${user.getId()})}" th:utext="${user.name}"></a></td>
             <td th:utext="${user.age}"></td>
         </tr>
     </table>
