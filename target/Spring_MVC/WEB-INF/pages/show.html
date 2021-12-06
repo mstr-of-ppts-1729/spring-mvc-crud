@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Selected user info</title>
+
+</head>
+<body>
+<p th:text="'Welcome to the app, ' + ${user.name} + '!'"></p>
+<br/><br/>
+<div>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+            <td th:utext="${user.id}"></td>
+            <td th:utext="${user.name}"></td>
+            <td th:utext="${user.age}"></td>
+        </tr>
+    </table>
+</div>
+<br/><br/>
+<div>
+    <a th:href="@{/users/}">Back</a>
+</div>
+<br/><br/>
+</body>
+</html>
+
