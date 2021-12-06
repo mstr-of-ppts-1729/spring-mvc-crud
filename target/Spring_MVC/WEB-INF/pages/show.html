@@ -16,12 +16,21 @@
             <th>Name</th>
             <th>Age</th>
         </tr>
-            <td th:utext="${user.id}"></td>
-            <td th:utext="${user.name}"></td>
-            <td th:utext="${user.age}"></td>
+        <td th:utext="${user.id}"></td>
+        <td th:utext="${user.name}"></td>
+        <td th:utext="${user.age}"></td>
         </tr>
     </table>
 </div>
+<br/><br/>
+<br/><br/>
+<div>
+    <a th:href="@{/users/{id}/edit(id = ${user.getId()})}">Edit user</a>
+</div>
+<br/><br/>
+<form th:method="DELETE" th:action="@{/users/{id}(id = ${user.getId()})}">
+    <input type = "submit" value = "Delete user"/>
+</form>
 <br/><br/>
 <div>
     <a th:href="@{/users/}">Back</a>
@@ -29,4 +38,3 @@
 <br/><br/>
 </body>
 </html>
-
