@@ -42,7 +42,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void update(int id, User user) {
         entityManager.createQuery(
-                "UPDATE User user SET user.name=:name, user.email=:email, user.age=:age WHERE user.id=:id")
+                "UPDATE User user SET user.name=:name, user.age=:age")
                 .setParameter("name", user.getName())
                 .setParameter("age", user.getAge())
                 .executeUpdate();
